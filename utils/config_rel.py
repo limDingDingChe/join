@@ -1,9 +1,3 @@
-# -*- coding: utf-8 -*-
-
-# @Author  : xmh
-# @Time    : 2021/3/11 16:53
-# @File    : config_rel.py
-
 """
 file description:：
 

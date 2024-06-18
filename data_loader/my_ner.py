@@ -98,7 +98,6 @@ class ModelDataPreparation:
                 if have_error:
                     continue
             else:
-                label_list = []
                 token_type_list = None
                 token_type_origin = None
 
@@ -208,13 +207,7 @@ class Dataset(torch.utils.data.Dataset):
 if __name__ == '__main__':
     config = ConfigNer()
     process = ModelDataPreparation(config)
-    train_loader, dev_loader, test_loader = process.get_train_dev_data(
-        '../data/mydata/mydata.json',
-        '../data/mydata/mydata.json',
-        '../data/mydata/mydata.json'
-    )
+    train_loader, dev_loader, test_loader = process.get_train_dev_data('../data/mydata/mydata.json')
     print(train_loader)
-    print(dev_loader)
-    print(test_loader)
     for item in train_loader:
         print(item)
