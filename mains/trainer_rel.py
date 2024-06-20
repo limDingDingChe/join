@@ -218,9 +218,9 @@ if __name__ == '__main__':
     model = BertForSequenceClassification.from_pretrained('../pre_models/bert-base-chinese', num_labels=config.num_relations)
     data_processor = DataPreparationRel(config)
     train_loader, dev_loader, test_loader = data_processor.get_train_dev_data(
-        '../data/test/train_small.json',
-        '../data/test/dev_small.json',
-        '../data/test/test.json',)
+        '../data/reldata/first_rel.json',
+        '../data/reldata/first_rel.json',
+        '../data/reldata/first_rel.json',)
     trainer = Trainer(model, config, train_loader, dev_loader, test_loader)
     trainer.bert_train()
 

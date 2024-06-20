@@ -1,9 +1,3 @@
-# -*- coding: utf-8 -*-
-
-# @Author  : xmh
-# @Time    : 2021/3/3 14:31
-# @File    : data_process.py
-
 """
 file description:：
 

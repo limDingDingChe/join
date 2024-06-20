@@ -90,10 +90,6 @@ class ModelDataPreparation:
             text_tokened = self.get_rid_unkonwn_word(text_tokened)
 
             if not is_test:
-                # 检查是否存在 'label' 键
-                if 'label' not in data_item:
-                    print(f"Skipping data item {cnt} due to missing 'label' key.")
-                    continue
                 label_list = data_item['label']
                 token_type_list, have_error = self.subject_object_labeling(
                     label_list=label_list, text=text, text_tokened=text_tokened
@@ -102,7 +98,6 @@ class ModelDataPreparation:
                 if have_error:
                     continue
             else:
-                label_list = []
                 token_type_list = None
                 token_type_origin = None
 
@@ -212,13 +207,7 @@ class Dataset(torch.utils.data.Dataset):
 if __name__ == '__main__':
     config = ConfigNer()
     process = ModelDataPreparation(config)
-    train_loader, dev_loader, test_loader = process.get_train_dev_data(
-        '../data/mydata/mydata.json',
-        '../data/mydata/mydata.json',
-        '../data/mydata/mydata.json'
-    )
+    train_loader, dev_loader, test_loader = process.get_train_dev_data('../data/mydata/mydata.json')
     print(train_loader)
-    print(dev_loader)
-    print(test_loader)
     for item in train_loader:
         print(item)
